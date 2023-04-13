@@ -42,7 +42,7 @@ export default function Home() {
     const deltaY = rightTopRect.top - leftMiddleRect.top;
 
     const icon = document.createElement("img");
-    icon.className = "absolute h-10 w-10";
+    icon.className = "absolute h-10 w-10 -z-50";
     icon.src = getRandomValue([
       "data:image/png;base64,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",
       "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAADsQAAA7EB9YPtSQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAA03SURBVHic7Z19WFRVHse/596B4V0Y5FWRFFKwBOzN1OjFyveXMqvtcV1N0Hp62Vr1ya2eXHvRerRV13yp9bXaXTN7sdTU1PQxsUxLBUlXQNBBBQSEYWAYZuae/YMVB+4MDsyduXe45/MXM3Pnd37M+dxzzj1n5lwCbzIzL4kThDFUQCYhSAUQD6AbAM6reXSShAj/6h6R3MjDr/Y7KncuUkE8XwQlfHbeeFA6hwJDvVOmZ+gT5Y9+cQHVlVfNDxyZn5Irdz5S4NnKmHE8gxe41RS426PleIk+Uf7oHx8AG6VX6hqt9x2c2/e03Dm5i8eaXi7r5EucwB3pKpVvD09IVKhWs/eed8/2kTsXd5FegPmU47JzlwNYBsBf8vgKgedIfLcgzQ/3Ly/tKXcu7iC5AJw+bzEofVHquEqEJyQxWLAcyFxQEid3Lp1FUgG4rBPPAHSWlDGVDs8hKTyE7ntw4elIuXPpDNIJMP1kP4AskyyeD0EIUgMDA/aNWl4QJncuHUUyAQiHFQACpIrna3A80nmB3zt8cVmw3Ll0BGkEeDr3PkLxkCSxfBiOI3fyfMO+wUv0gXLn4iqSCEA44WUp4nQF/DRkUHdN0/aZHx3zkzsXV3BfgKx8HQEZLUEuXQYCbtjlRt3Xj39OeblzuRFuC8BTy0Powtf7nYUQMsZUVvLV/PlU0escbidHOTJYikS6Ihww/lfd+Y2UUsWuf7gvAEWKFIl0VQjolEdXlHwodx7OcFsAAsRKkUhXRqCY+cgHxYqcI5Gif/Kp6165EChemrTq/EK582iLFAIofqSrFJpswl8nLC+aJ3ce9ih6hNrloCAUZP6klSWz5U7lGkwAr0OIxUYXTfrgnCJWTJkAMkABzgIseWJF0XS5c2ECyASlRNNEudWTP7zwpJx5MAFkRKDwN1psH09aWTJRrhyYADJDKbRWAZ9M/qd+lBzlMwEUgEBpsNFs3fLEqiKvL6kzARQCpQi2CPyWqRsvDvVmuUwABWETaLjBaNk689NLt3mrTCaAwrAJtHtlrXnXjA3FGd4ojwmgQKwCoqoayI7nP77S19NlMQEUitVG48vqjbvnfF7W25PlMAEUjMWKm4orzXtmbb2Y4KkymAAKx2IVkvSXLLsX7DXGeCI+E8AHMFtpam5B5c4lu2p1UsdmAvgIJgsdeKS4ZveqH2sipIzLBPAhTBbhjoP5td98nl8RIlVMJoCP0dAkZG7NMX11WE8l+fURE8AHMTYKD6/YeeGLggKqdTeWRoqE1EJNgw1FFWa507jG6Mc+/e9SAM+5E4QJ0AGq622orrfJnYY9I9wNwLoAlcMEUDlMAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOaoVIETLISzQM7c74jmCiCAewVrlf7yy7g/w1KBwvPWI87vONTQJqDLaUHq1CTmFDfj+VB2KK5s6VdagPkGYdEc3jLg1FElRWgT4Nd/L0WylKKlswp78OnxxrBY/FtR3OHaAH8FTgyIwekAohiQHI7bb9Y+10UJx/IIJB84YsTGnGoUVncvfU7h9R0su62QRgD6dee8z90di1R97uHy8QIGdeQa89W05jpWYXHpPSqwW7z8Zj1EDQl06fv8ZI/7y2SXklTa6dPz0TB3enBCD+PAb3yuaUmD9oWrM3XIZVxsk2WjinLAuPcmdAMpvo+zgCDAmLQyHX0vGu4/Fgefa93dsehh+ej3Z5coHgAdSQpDzajIevzO83eMC/Tn8a0YvrJna06XKBwBCgKxMHQ6/nozESGXcbtmnBLgGzxG8MioKa6f1hDMHRtwaii+fT+xUPx+s5bBpZi88eZdjCTgCfJKVgKcGtS+JM/rGaPH97D4IUcAYQXF7BJmtFIfO1kPDE0QE8+gbc72/bsufhkTgpN6EZXsqWz3fL1aLz57pBY0DOyw2igNnjMi/ZAalFClxARiWGgKtpvWxhABrp/VE/sVGnLrYujuYOzoaE2/v5jCnslor9uTXocxgRe/u/hiWGgJdsFjC5Gh/vDY2Gq99Wdbu5+FpFCfAlTorhi851/LYjycYOSAU8yfEICNBvDXeG+Ni8O+fa3Clztry3HuT4hye+TmF9Xh6nR5FV1oPxHrp/LB+egIeSGm9/2KQP4dFj8dh9LLiluciQ3i8MjJKFJtSYOGOCizYXg6zlbY6fuXkHg67lBn3RuKtb8vRaKGi17yF/G3QDbDYKLadMODudwqx5WiN6PXwIB5Th17fPTU9IQDjM8JEx/163oSRS4pFlQ8AF6otGLOsGIccXAGMuDUUd/UOanmclalzKNfb28oxb2tZq8oHgCqjDVPW6h1eXeiCedyeGCR63psoXoBrWGwUMz4uxeVai+i1cenXK3zCQHHTTCmQtUGPhibBaXyzlSJ7YylsgvhstBdqxC3iAWVJZRMWbK9oN/d3tpW3PC43WPFdbvPVTJmD/8ebKK4LaI+6RgGbjtRg1vDWTfDgpCBoOAKrQDEsVbyN7o8F9S5d1hWUm7HvtBHD21TysNQQ4OvmccHgZPHN0jcfrYHVgTj27D9Tj4krS/DbeRP01fJWuj0+0wJcI6ewQfQczxFEhzW73DNCfEmW04HJnZwCcfwEXXPM8EBeNFgEgF9dmJOwCRTfHDcoqvIBHxSg0m6wZ090aLMA3UPEjVqFk/c4otwgrqCo/8eODHF8Samw3UM7hM8JEOTvOGWjubkSHPXzgX6u/5tBDq7N683NMU1ORuvOLlN9AZ8TICna8QxauaH5LK8wiM/2lDjXN9VOiRUfe60Fcdb69O6ujFm9zuBzAjzqYJR/udaCusbms/TEBXF/PGpAKAKdtBz2+GsIxqSJLyGPn2+OabZSnK8SX0a2HTQ6IrabBuMywlq6E6XgUwKMGhCKB/uLR/k7Tta1/L3zVJ3o9ahQDWYPF0/etOX5Yd3Rw8Eg0j7m3t+NotdHp4UiPSGg3djZmZHY+sJNKFvaH7+/0w/rn05A9r06p+MKb+ETAhACTL47ApufTXT4+ma7CaJtJwy4VCMeyL0xPhpPtLPAMy4jDAsmipemK+qs2PpbbcvjLcdqRcfwHMHmZxPRS+d4USgjIRBz7GYP+8VqMXVoBD6c0rND4xNPoKz2CM0Dqgf7h4AjBJHBPFLjtZh4Wzf0j3d8hu0+VYcfTl8/KxuaBLy9rQKrp7ReZtZwBP+Z2QsTBoZhzcFq/H6xERRAapwW04bqMGVIhMOFpXd3VLR0LwCwJ78Ohwrqcc/NrecDbo7R4ti8vli0qwLbTxhQbrAiQeeHselhmDMyCqEB4ored9qI0qvyXhb61PcB2nKlzorM94pQUN76Lh6EAJufTcRjThZsXOW7XAMmfFCCtnM8A3oG4ODcJLe+UWQVKIYuLHT5ew1OUNf3AeypNFoxYsk5UeUDzVO/09bpceCMuL92lZ/PNWDyGr2o8gEgr7QRf/jogluLOC9vuuRu5UuCTwqw5WgN0uadxUm98+ndhiYBI5cWY8W+StAO1BOlwNqD1Ri2qAgGk/MJnt2n6pD5XiHOOVhcao+GJgHT1uuxen9Vh97nKRQ3BnDGhWoLduUZsGp/lctf17LYKF7adAkbDl3FvPExGDUgFP4OpnKB5iZ5b74Rb35bjl+KxdPBjvjtvAlpfzuL7EwdXn64O25qZz7AYLLhs19qsGB7hez9vj2yjgGSovwxMNH57e8aLRRVRiv01RZJPrRgLYf7+4UgKdof0aEaaHiCsloLSqos2H/aiNp2znhXSInVYnByMOLDNQgP4tFooagwWJFbasIvxSaY2lmN7CRujwFkbQGKrjQ5XJ/3FPVmATtyDR6Lf6bMjDNlirmtnEv45BiAIR1MAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOUwAlcMEUDlMAJXDBFA5TACVwwRQOUwAlSOFAL7722jfx+3PXgoBOr61JkMaCMQ/hOwgbgtAAXn3OVMxlLr/2bstACE4424MRucgIG5/9u4LQMlhd2MwOgehwiF3Y7gtgA38PgDK2gJbHZhtAt3vbhD3B4HrbqmmhOxwOw6jQ1CKbdg4ULxzZgeRZB6AClgsRRyG61DQf0gRR5qJoPVpP1GQ7yWJxbghFNiJ9Rlu9/+AhDOBlBNeBIH8P3jv+jRQaP4sVTDppoLXZJwlFJIlxnAMIfQFrLulUKp4kq4F2NalrwXF36WMybCDYLFtbcYGaUNKDiXc9NxlIKw1kBa6VFiXPhsgkt5cwGN7nHJZuS8A9H0Arm/TyXBEIwhmCWvTV3siuGc3uc3OS+MF22pKyBCPltNFIcAhm408h41peR4sw9NQwmfljgUwhwKZ3inTp6GE4CAIfd+2Jn2H1E1+W7xbGdkne3OUjAFBJihNAZAAIAyAvPulyocNgAGAHsBpAAcFm/AdNg4s8VYC/wMIyUsbGNKnCAAAAABJRU5ErkJggg==",
@@ -52,7 +52,7 @@ export default function Home() {
     ]);
     leftMiddle.current.appendChild(icon);
 
-    const duration = getRandomValue([1250, 1500, 1750, 2000, 2250]);
+    const duration = getRandomValue([1750, 2000, 2250, 2500]);
 
     const animation = anime({
       targets: icon,
@@ -93,10 +93,10 @@ export default function Home() {
       if (document.visibilityState === "visible") {
         intervalId = setInterval(() => {
           createAnimation(
-            getRandomValue(["alternate", "normal", "reverse"]),
+            getRandomValue(["normal", "reverse"]),
             getRandomValue(["top", "bottom", "middle"])
           );
-        }, 250);
+        }, 1000);
       } else {
         clearInterval(intervalId);
       }
@@ -137,26 +137,37 @@ export default function Home() {
           }
         }
       `}</style>
-      <main className="min-h-screen text-white overflow-hidden bg-[#0B1120]">
+      <main className="relative min-h-screen text-white overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full /bg-white -z-10">
+          {/* background image */}
+          <img
+            className="w-full h-full object-cover hue-rotate-15"
+            src="./images/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg"
+            alt=""
+          />
+        </div>
         {/* <div ref={boxRef}>My animated box</div> */}
-        <div className="w-full">
-          <div className="mx-auto flex px-6 sm:px-8 max-w-5xl justify-between py-6 text-xl ease">
-            <div className="">SecuriDocs</div>
-            <div className="">Login</div>
+        <div className="w-full bg-black/75 backdrop-blur z-20">
+          <div className="mx-auto flex px-6 sm:px-8 max-w-5xl justify-between py-6 text-xl ">
+            <div className="font-mono cursor-pointer">SecuriDocs</div>
+            <div className="flex items-baseline cursor-pointer">
+              <div className="font-sans text-white">login</div>
+              <i className="fas fa-lock ml-3 text-sm text-white/75" />
+            </div>
           </div>
         </div>
-        <div className="mt-20 md:mt-[10vh] w-full flex justify-center">
+        <div className="my-28 sm:my-[20vh] w-full flex justify-center">
           <div className="relative px-[2vw] max-w-5xl w-full flex items-center justify-between">
             <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center">
               <img
-                className="w-96 max-w-[50vw] opacity-75 blur-[4px] mb-6 cloud-animation"
+                className="w-96 max-w-[50vw] /opacity-75 blur-[4px] mb-6 cloud-animation"
                 src="./images/realistic-cloud.png"
                 alt="cloud"
               />
             </div>
             <div className="relative flex-1 flex ">
               {/*  */}
-              <div className="absolute top-0 left-0 w-full h-full">
+              {/* <div className="absolute top-0 left-0 w-full h-full">
                 <div
                   className="relative flex flex-col justify-center md:flex-row p-2 gap-2 sm:w-3/5 md:w-2/3 max-w-[15rem] rounded-lg"
                   ref={leftMiddle}
@@ -164,12 +175,21 @@ export default function Home() {
                   <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0" />
                   <div className="hidden sm:block rounded-lg sm:h-8 w-full" />
                 </div>
-              </div>
+              </div> */}
               {/*  */}
-              <div className="relative flex flex-col justify-center md:flex-row items-center p-2 gap-2 sm:w-3/5 md:w-2/3 max-w-[15rem] rounded-lg sm:bg-black sm:border border-blue-950/75 z-10">
-                <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-950 sm:bg-blue-950/50" />
-                <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-950 sm:bg-blue-950/50" />
+              <div
+                className="relative flex flex-col justify-center md:flex-row items-center p-2 gap-2 sm:w-3/5 md:w-2/3 max-w-[15rem] z-10"
+                ref={leftMiddle}
+              >
+                <div className="absolute top-0 left-0 w-full h-full rounded-lg sm:bg-blue-950/50 sm:backdrop-blur /sm:border border-blue-950/75 -z-10" />
+                <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-800 sm:bg-slate-950/50" />
+                <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-800 sm:bg-slate-950/50" />
               </div>
+              {/* <img
+                className="w-4/5 max-w-[8rem] z-10"
+                src="./images/business.png"
+                alt="server"
+              /> */}
             </div>
             <div className="relative flex-1 h-64 flex items-center justify-center">
               <img
@@ -181,27 +201,27 @@ export default function Home() {
             <div className="flex-1 flex flex-row-reverse">
               <div className="flex flex-col gap-4 sm:gap-8 sm:w-3/5 md:w-2/3 max-w-[15rem]">
                 <div
-                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-black sm:border border-blue-950/75 z-10"
+                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-blue-950/50 sm:backdrop-blur /sm:border border-blue-950/75 z-10"
                   ref={rightTop}
                 >
-                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-950 sm:bg-blue-950/50" />
-                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-950 sm:bg-blue-950/50" />
+                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-800 sm:bg-slate-950/50" />
+                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-800 sm:bg-slate-950/50" />
                 </div>
                 {/*  */}
                 <div
-                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-black sm:border border-blue-950/75 z-10"
+                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-blue-950/50 sm:backdrop-blur /sm:border border-blue-950/75 z-10"
                   ref={rightMiddle}
                 >
-                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-950 sm:bg-blue-950/50" />
-                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-950 sm:bg-blue-950/50" />
+                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-800 sm:bg-slate-950/50" />
+                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-800 sm:bg-slate-950/50" />
                 </div>
                 {/*  */}
                 <div
-                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-black sm:border border-blue-950/75 z-10"
+                  className="flex flex-col md:flex-row items-center p-2 gap-2 rounded-lg sm:bg-blue-950/50 sm:backdrop-blur /sm:border border-blue-950/75 z-10"
                   ref={rightBottom}
                 >
-                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-950 sm:bg-blue-950/50" />
-                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-950 sm:bg-blue-950/50" />
+                  <div className="rounded-full max-h-[15vw] max-w-[15vw] h-[6rem] w-[6rem] sm:h-12 sm:w-12 md:h-8 md:w-8 lg:h-10 lg:w-10 shrink-0 bg-slate-800 sm:bg-slate-950/50" />
+                  <div className="hidden sm:block rounded-lg sm:h-8 w-full bg-slate-800 sm:bg-slate-950/50" />
                 </div>
               </div>
             </div>
