@@ -93,10 +93,7 @@ export default function Home() {
             muted
             playsInline
           >
-            <source
-              src="./videos/pexels-dima-krivoy-1085656-3840x2160-25fps.mp4"
-              type="video/mp4"
-            />
+            <source src="./videos/Untitled Project.mp4" type="video/mp4" />
           </video>
         </div>
         {/* phase1 */}

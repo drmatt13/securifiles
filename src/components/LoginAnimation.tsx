@@ -113,12 +113,21 @@ const LoginAnimation = () => {
     if (buildingAnimationRef.current) {
       clearInterval(buildingAnimationRef.current);
     }
-    buildingAnimationRef.current = setInterval(() => {
-      setBuildingState((prev) => (prev === 4 ? 0 : prev + 1));
-      console.log(buildingState);
-    }, 5000);
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        buildingAnimationRef.current = setInterval(() => {
+          setBuildingState((prev) => (prev === 4 ? 0 : prev + 1));
+          console.log(buildingState);
+        }, 5000);
+      } else {
+        clearInterval(buildingAnimationRef.current);
+      }
+    };
+    handleVisibilityChange();
+    document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => {
       clearInterval(buildingAnimationRef.current);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [buildingState]);
 
