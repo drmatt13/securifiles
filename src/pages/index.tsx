@@ -153,7 +153,9 @@ export default function Home() {
             ${phase > 3 && "opacity-0 duration-300 ease-out"}
             transition-opacity relative h-screen w-full`}
           >
-            <LoginAnimation />
+            <div className="w-full h-full flex justify-center items-center text-white text-3xl font-bold">
+              PAGE 3
+            </div>
           </div>
         </div>
         {/* phase4 */}
@@ -171,7 +173,9 @@ export default function Home() {
             ${phase > 4 && "opacity-0 duration-300 ease-out"}
             transition-opacity relative h-screen w-full`}
           >
-            <LoginAnimation />
+            <div className="w-full h-full flex justify-center items-center text-white text-3xl font-bold">
+              PAGE 4
+            </div>
           </div>
         </div>
         {/* observable refs */}

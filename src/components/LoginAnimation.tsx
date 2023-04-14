@@ -29,6 +29,9 @@ const LoginAnimation = () => {
   const rightTop = useRef<HTMLDivElement>(null);
   const rightBottom = useRef<HTMLDivElement>(null);
 
+  const buildingAnimationRef = useRef<NodeJS.Timer>();
+  const [buildingState, setBuildingState] = useState(0);
+
   function createAnimation(
     direction: "alternate" | "normal" | "reverse",
     destination: "top" | "bottom" | "middle"
@@ -106,6 +109,19 @@ const LoginAnimation = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (buildingAnimationRef.current) {
+      clearInterval(buildingAnimationRef.current);
+    }
+    buildingAnimationRef.current = setInterval(() => {
+      setBuildingState((prev) => (prev === 4 ? 0 : prev + 1));
+      console.log(buildingState);
+    }, 5000);
+    return () => {
+      clearInterval(buildingAnimationRef.current);
+    };
+  }, [buildingState]);
+
   return (
     <>
       <style jsx>{`
@@ -133,6 +149,18 @@ const LoginAnimation = () => {
             transform: translateY(-0.4rem);
           }
         }
+        .building-animation {
+          animation: buildingTranslate 6s ease-in-out infinite;
+        }
+        @keyframes buildingTranslate {
+          0%,
+          100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(0.5rem);
+          }
+        }
       `}</style>
       <div className="h-screen w-full flex justify-center">
         <div className="relative px-[2vw] max-w-5xl w-full flex items-center justify-between">
@@ -153,11 +181,82 @@ const LoginAnimation = () => {
                 >
                   {/* <div className="absolute h-10 w-10 z-50"></div> */}
                 </div>
-                <img
-                  className="z-10"
-                  src="./images/building (3).png"
-                  alt="server"
-                />
+                <div className="relative bg-white w-full h-full building-animation">
+                  <img
+                    className={`
+                    ${
+                      buildingState === 0
+                        ? "opacity-100 ease-out duration-500"
+                        : "opacity-0 ease-out duration-1000"
+                    }
+                    absolute top-0 left-0 transition-all`}
+                    style={{
+                      transform: `translateY(${
+                        buildingState === 4
+                          ? 50
+                          : buildingState === 0
+                          ? -50
+                          : -150
+                      }%)`,
+                    }}
+                    src="./images/building (3).png"
+                    alt="server"
+                  />
+                  <img
+                    className={`${
+                      buildingState === 1
+                        ? "opacity-100 ease-out duration-500"
+                        : "opacity-0 ease-out duration-1000"
+                    } absolute top-0 left-0 transition-all`}
+                    style={{
+                      transform: `translateY(${-buildingState * 100 + 50}%)`,
+                    }}
+                    src="./images/building (2).png"
+                    alt="server"
+                  />
+                  <img
+                    className={`${
+                      buildingState === 2
+                        ? "opacity-100 ease-out duration-500"
+                        : "opacity-0 ease-out duration-1000"
+                    } absolute top-0 left-0 transition-all`}
+                    style={{
+                      transform: `translateY(${-buildingState * 100 + 150}%)`,
+                    }}
+                    src="./images/building (4).png"
+                    alt="server"
+                  />
+                  <img
+                    className={`${
+                      buildingState === 3
+                        ? "opacity-100 ease-out duration-500"
+                        : "opacity-0 ease-out duration-1000"
+                    } absolute top-0 left-0 transition-all`}
+                    style={{
+                      transform: `translateY(${-buildingState * 100 + 250}%)`,
+                    }}
+                    src="./images/building (5).png"
+                    alt="server"
+                  />
+                  <img
+                    className={`${
+                      buildingState === 4
+                        ? "opacity-100 ease-out duration-500"
+                        : "opacity-0 ease-out duration-1000"
+                    } absolute top-0 left-0 transition-all`}
+                    style={{
+                      transform: `translateY(${
+                        buildingState === 3
+                          ? 50
+                          : buildingState === 4
+                          ? -50
+                          : -150
+                      }%)`,
+                    }}
+                    src="./images/building (1).png"
+                    alt="server"
+                  />
+                </div>
               </div>
             </div>
             {/* ****************************************************************************************** */}
